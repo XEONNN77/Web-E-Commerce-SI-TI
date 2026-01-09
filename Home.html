@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<img src="img/Logo1.png" alt="SAQÉRA EYEWEAR" class="logo">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#fff;
+color:#111;
+}
+
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#fff;
+position:sticky;
+top:0;
+z-index:99;
+}
+
+.nav-menu{
+display:flex;
+align-items:center;
+gap:25px;
+}
+
+.nav-menu a{
+text-decoration:none;
+color:#111;
+font-weight:500;
+}
+
+.cart-icon{
+position:relative;
+font-size:18px;
+cursor:pointer;
+}
+
+.cart-icon span{
+position:absolute;
+top:-8px;
+right:-10px;
+background:#e63946;
+color:#fff;
+font-size:11px;
+padding:2px 6px;
+border-radius:50%;
+}
+
+/* HERO */
+.hero{
+display:grid;
+grid-template-columns:1.2fr 0.8fr;
+align-items:center;
+padding:90px 8%;
+background:#f6dfe3;
+overflow:hidden;
+}
+
+.hero-text h1{
+font-size:56px;
+line-height:1.1;
+}
+
+.hero-text p{
+margin:20px 0;
+}
+
+.hero img{
+width:140%;
+max-width:620px;
+transform:translateX(120px);
+}
+
+/* BUTTON */
+.btn-shop{
+padding:15px 40px;
+border:none;
+border-radius:50px;
+background:#111;
+color:#fff;
+display:inline-flex;
+gap:10px;
+cursor:pointer;
+animation:pulse 2s infinite;
+}
+
+/* PROMO */
+.promo{
+padding:60px 8%;
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:25px;
+}
+
+.promo-main{
+background:#f5f5f5;
+border-radius:30px;
+padding:40px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+overflow:hidden;
+}
+
+.promo-text h2{
+font-size:60px;
+}
+
+.promo-text span{
+font-size:26px;
+}
+
+.promo-btn{
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:#111;
+color:#fff;
+cursor:pointer;
+}
+
+.promo-main img{
+width:55%;
+max-width:320px;
+}
+
+.promo-side{
+display:grid;
+grid-template-rows:1fr 1fr;
+gap:25px;
+}
+
+.promo-card{
+background:#fff;
+border-radius:25px;
+padding:25px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.promo-card span{
+font-size:12px;
+color:#777;
+letter-spacing:1px;
+}
+
+.promo-card img{
+width:100%;
+max-height:130px;
+object-fit:contain;
+margin-top:10px;
+}
+
+/* CATEGORY */
+.category{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+padding:40px 8%;
+}
+
+.cat-card{
+padding:18px;
+border-radius:50px;
+background:#fff;
+text-align:center;
+cursor:pointer;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.cat-card.active,
+.cat-card:hover{
+background:#f6dfe3;
+transform:translateY(-5px);
+}
+
+/* PRODUCTS */
+.products{
+padding:30px 8%;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.product-card{
+background:#fff;
+border-radius:20px;
+padding:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+position:relative;
+}
+
+.product-card img{
+width:100%;
+max-height:150px;
+object-fit:contain;
+}
+
+/* PRODUCTS */
+.products{
+padding:30px 8%;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.product-card{
+background:#fff;
+border-radius:20px;
+padding:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+position:relative;
+}
+
+.product-card img{
+width:100%;
+max-height:150px;
+object-fit:contain;
+}
+
+/* CART */
+.btn-cart{
+width:100%;
+padding:12px;
+border:none;
+border-radius:30px;
+background:#111;
+color:#fff;
+cursor:pointer;
+}
+
+/* WISHLIST */
+.wishlist{
+position:absolute;
+top:15px;
+right:15px;
+cursor:pointer;
+}
+
+/* FLOATING */
+.floating-btn{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#111;
+color:#fff;
+padding:14px 22px;
+border-radius:50px;
+cursor:pointer;
+}
+
+/* FOOTER */
+.footer{
+margin-top:80px;
+padding:30px;
+text-align:center;
+background:#fafafa;
+}
+
+/* ANIM */
+.fade{
+animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(0,0,0,.4)}
+70%{box-shadow:0 0 0 15px rgba(0,0,0,0)}
+100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.hero img{
+width:110%;
+transform:none;
+margin-top:30px;
+}
+.promo{
+grid-template-columns:1fr;
+}
+.category{
+grid-template-columns:1fr 1fr;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <h2 class="logo">SAQÉRA EYEWEAR</h2>
+    <nav class="nav-menu">
+    <a href="home.html" class="nav-link active">Home</a>
+    <a href="shop.html" class="nav-link">Shop</a>
+    <a href="Wishlist.html" class="nav-link">Wishlist</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+
+    <a href="Chart.html" class="cart-icon">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cart-count">3</span>
+</a>
+
+
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero fade">
+    <div class="hero-text">
+        <h1>Your Style<br>Your Glasses</h1>
+        <p>Koleksi Aksesoris Kacamata Trendy & Stylish</p>
+        <button class="btn-shop" onclick="scrollProduct()">
+            Shop Now <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+    <img src="img/home1.png" alt="Hero Glasses">
+</section>
+
+<!-- PROMO BANNER -->
+<section class="promo fade">
+  <div class="promo-main">
+  <img src="img/Promo1.png" alt="Promo Glasses">
+
+  <div class="promo-overlay">
+    <h2>40% <span>OFF</span></h2>
+    <p>Discover quality fashion that reflects your style</p>
+    <button class="promo-btn">Explore Products →</button>
+  </div>
+</div>
+
+  <div class="promo-side">
+    <div class="promo-card">
+      <span>FOR NEW COMERS</span>
+      <h3>EXCLUSIVE OFFER</h3>
+      <img src="img/Promo2.png">
+    </div>
+
+    <div class="promo-card">
+      <span>NEW ARRIVALS</span>
+      <img src="img/Promo3.png">
+    </div>
+  </div>
+</section>
+
+
+<!-- CATEGORY -->
+<section class="category fade">
+    <div class="cat-card active" data-filter="all">New Arrivals</div>
+    <div class="cat-card" data-filter="trending">Trending</div>
+    <div class="cat-card" data-filter="bestseller">Best Seller</div>
+    <div class="cat-card" data-filter="toprated">Top Rated</div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products fade" id="products">
+<h2 id="product-title">New Arrivals</h2>
+
+<div class="product-grid">
+
+<!-- Produk 1 -->
+<div class="product-card" data-id="1" data-category="trending bestseller">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:1,name:'SAQÉRA Classic',price:59000,image:'img/Classic4.png'}, this)"></i>
+</span>
+<img src="img/Classic4.png">
+<h4>SAQÉRA Classic</h4>
+<p>Rp 59.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Classic', 59000, 'img/Classic4.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 2 -->
+<div class="product-card" data-id="2" data-category="trending">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:2,name:'SAQÉRA Round',price:69000,image:'img/Round4.png'}, this)"></i>
+</span>
+<img src="img/Round4.png">
+<h4>SAQÉRA Round</h4>
+<p>Rp 69.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Round', 69000, 'img/Round4.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 3 -->
+<div class="product-card" data-id="3" data-category="bestseller">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:3,name:'SAQÉRA Retro',price:49000,image:'img/retro1.png'}, this)"></i>
+</span>
+<img src="img/retro1.png">
+<h4>SAQÉRA Retro</h4>
+<p>Rp 49.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Retro', 49000, 'img/retro1.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 4 -->
+<div class="product-card" data-id="4" data-category="toprated">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:4,name:'SAQÉRA Modern',price:59000,image:'img/Modern.png'}, this)"></i>
+</span>
+<img src="img/Modern.png">
+<h4>SAQÉRA Modern</h4>
+<p>Rp 59.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Modern', 59000, 'img/Modern.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 5 -->
+<div class="product-card" data-id="5" data-category="trending">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:5,name:'SAQÉRA Clear Frame',price:79000,image:'img/Clear.png'}, this)"></i>
+</span>
+<img src="img/Clear.png">
+<h4>SAQÉRA Clear Frame</h4>
+<p>Rp 79.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Clear Frame', 79000, 'img/Clear.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 6 -->
+<div class="product-card" data-id="6" data-category="bestseller">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:6,name:'SAQÉRA Square',price:89000,image:'img/square.png'}, this)"></i>
+</span>
+<img src="img/square.png">
+<h4>SAQÉRA Square</h4>
+<p>Rp 89.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Square', 89000, 'img/square.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 7 -->
+<div class="product-card" data-id="7" data-category="toprated">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:7,name:'SAQÉRA Luxury',price:99000,image:'img/Luxury.png'}, this)"></i>
+</span>
+<img src="img/Luxury.png">
+<h4>SAQÉRA Luxury</h4>
+<p>Rp 99.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Luxury', 99000, 'img/Luxury.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 8 -->
+<div class="product-card" data-id="8" data-category="trending bestseller">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:8,name:'SAQÉRA Cat Eye',price:75000,image:'img/Cateye.png'}, this)"></i>
+</span>
+<img src="img/Cateye.png">
+<h4>SAQÉRA Cat Eye</h4>
+<p>Rp 75.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Cat Eye', 75000, 'img/Cateye.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 9 -->
+<div class="product-card" data-id="9" data-category="toprated">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:9,name:'SAQÉRA Sport',price:85000,image:'img/sport1.png'}, this)"></i>
+</span>
+<img src="img/sport1.png">
+<h4>SAQÉRA Sport</h4>
+<p>Rp 85.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Sport', 85000, 'img/sport1.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 10 -->
+<div class="product-card" data-id="10" data-category="bestseller">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:10,name:'SAQÉRA Minimalist Frame',price:55000,image:'img/minimalis.png'}, this)"></i>
+</span>
+<img src="img/minimalis.png">
+<h4>SAQÉRA Minimalist Frame</h4>
+<p>Rp 55.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Minimalist Frame', 55000, 'img/minimalis.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 11 -->
+<div class="product-card" data-id="11" data-category="trending toprated">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:11,name:'SAQÉRA Transparent',price:95000,image:'img/transparan.png'}, this)"></i>
+</span>
+<img src="img/transparan.png">
+<h4>SAQÉRA Transparent</h4>
+<p>Rp 95.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Transparent', 95000, 'img/transparan.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+<!-- Produk 12 -->
+<div class="product-card" data-id="12" data-category="bestseller">
+<span class="wishlist">
+<i class="fa-regular fa-heart"
+onclick="toggleWishlist({id:12,name:'SAQÉRA Classic Metal',price:65000,image:'img/metal.png'}, this)"></i>
+</span>
+<img src="img/metal.png">
+<h4>SAQÉRA Classic Metal</h4>
+<p>Rp 65.000</p>
+<button type="button" class="btn-cart"
+onclick="addToCart('SAQÉRA Classic Metal', 65000, 'img/metal.png')">
+<i class="fa-solid fa-cart-shopping"></i> Add to Cart
+</button>
+</div>
+
+</div>
+</section>
+
+<!-- FLOATING BUTTON -->
+<div class="floating-btn" onclick="scrollProduct()">
+<i class="fa-solid fa-bag-shopping"></i> Shop Collection
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>© 2025 <strong>SAQÉRA EYEWEAR</strong> — All Rights Reserved</p>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | SAQÉRA Eyewear</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<!-- ICON -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-page">
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="brand">
+        <img src="img/Logo1.png" alt="SAQERA" style="height:42px;">
+    </div>
+
+    <div class="nav-menu">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="wishlist.html" class="nav-link">Wishlist</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+
+    <a href="Chart.html" class="cart-icon">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count">0</span>
+    </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1 style="font-family:'Playfair Display',serif;">Our Collection</h1>
+        <p>Discover eyewear that fits your style & confidence.</p>
+    </div>
+    <img src="img/Shop1.png" alt="Eyewear">
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+    <div class="product-grid">
+
+       <!-- PRODUCT 1 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:101,name:'SAQÉRA Round',price:69000,image:'img/Roundwomen.png'}, this)"></i>
+    </span>
+    <img src="img/Roundwomen.png"
+    onclick="openProductDetail('SAQÉRA Round',69000,'img/Roundwomen.png','Frame round klasik dengan desain ringan dan nyaman.')">
+    <h4>SAQÉRA Round</h4>
+    <p>Rp 69.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Round',69000,'img/Roundwomen.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 2 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:102,name:'SAQÉRA Retro',price:49000,image:'img/retrowomen1.png'}, this)"></i>
+    </span>
+    <img src="img/retrowomen1.png"
+    onclick="openProductDetail('SAQÉRA Retro',49000,'img/retrowomen1.png','Model retro klasik dengan sentuhan vintage modern.')">
+    <h4>SAQÉRA Retro</h4>
+    <p>Rp 49.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Retro',49000,'img/retrowomen1.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 3 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:103,name:'SAQÉRA Cat Eye',price:75000,image:'img/Cateyewpmen.png'}, this)"></i>
+    </span>
+    <img src="img/Cateyewpmen.png"
+    onclick="openProductDetail('SAQÉRA Cat Eye',75000,'img/Cateyewpmen.png','Frame cat eye elegan untuk tampilan fashionable.')">
+    <h4>SAQÉRA Cat Eye</h4>
+    <p>Rp 75.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Cat Eye',75000,'img/Cateyewpmen.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 4 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:104,name:'SAQÉRA Square',price:89000,image:'img/squarewomen.png'}, this)"></i>
+    </span>
+    <img src="img/squarewomen.png"
+    onclick="openProductDetail('SAQÉRA Square',89000,'img/squarewomen.png','Frame square modern dengan kesan tegas.')">
+    <h4>SAQÉRA Square</h4>
+    <p>Rp 89.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Square',89000,'img/squarewomen.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 5 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:105,name:'SAQÉRA Classic',price:59000,image:'img/Classicmen.png'}, this)"></i>
+    </span>
+    <img src="img/Classicmen.png"
+    onclick="openProductDetail('SAQÉRA Classic',59000,'img/Classicmen.png','Frame klasik serbaguna untuk segala gaya.')">
+    <h4>SAQÉRA Classic</h4>
+    <p>Rp 59.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Classic',59000,'img/Classicmen.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 6 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:106,name:'SAQÉRA Clear Frame',price:79000,image:'img/Clearmen1.png'}, this)"></i>
+    </span>
+    <img src="img/Clearmen1.png"
+    onclick="openProductDetail('SAQÉRA Clear Frame',79000,'img/Clearmen1.png','Frame transparan minimalis dan stylish.')">
+    <h4>SAQÉRA Clear Frame</h4>
+    <p>Rp 79.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Clear Frame',79000,'img/Clearmen1.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 7 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:107,name:'SAQÉRA Classic Metal',price:79000,image:'img/Classicmetalmen.png'}, this)"></i>
+    </span>
+    <img src="img/Classicmetalmen.png"
+    onclick="openProductDetail('SAQÉRA Classic Metal',79000,'img/Classicmetalmen.png','Frame metal premium dengan kesan elegan.')">
+    <h4>SAQÉRA Classic Metal</h4>
+    <p>Rp 79.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Classic Metal',79000,'img/Classicmetalmen.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 8 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:108,name:'SAQÉRA Sport',price:79000,image:'img/sportmen.png'}, this)"></i>
+    </span>
+    <img src="img/sportmen.png"
+    onclick="openProductDetail('SAQÉRA Sport',79000,'img/sportmen.png','Kacamata sport ringan dan nyaman.')">
+    <h4>SAQÉRA Sport</h4>
+    <p>Rp 79.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Sport',79000,'img/sportmen.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 9 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:109,name:'SAQÉRA Classic Kids',price:49000,image:'img/Classikidz.png'}, this)"></i>
+    </span>
+    <img src="img/Classikidz.png"
+    onclick="openProductDetail('SAQÉRA Classic Kids',49000,'img/Classikidz.png','Frame anak aman dan nyaman digunakan.')">
+    <h4>SAQÉRA Classic Kids</h4>
+    <p>Rp 49.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Classic Kids',49000,'img/Classikidz.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 10 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:110,name:'SAQÉRA Metal Kids',price:49000,image:'img/Classicmetalkids.png'}, this)"></i>
+    </span>
+    <img src="img/Classicmetalkids.png"
+    onclick="openProductDetail('SAQÉRA Metal Kids',49000,'img/Classicmetalkids.png','Frame metal kids kuat dan stylish.')">
+    <h4>SAQÉRA Metal Kids</h4>
+    <p>Rp 49.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Metal Kids',49000,'img/Classicmetalkids.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 11 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:111,name:'SAQÉRA Clear Kids',price:49000,image:'img/Clearkids.png'}, this)"></i>
+    </span>
+    <img src="img/Clearkids.png"
+    onclick="openProductDetail('SAQÉRA Clear Kids',49000,'img/Clearkids.png','Frame transparan lucu untuk anak-anak.')">
+    <h4>SAQÉRA Clear Kids</h4>
+    <p>Rp 49.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Clear Kids',49000,'img/Clearkids.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+<!-- PRODUCT 12 -->
+<div class="product-card">
+    <span class="wishlist">
+        <i class="fa-regular fa-heart"
+        onclick="toggleWishlist({id:112,name:'SAQÉRA Round Kids',price:49000,image:'img/Roundkids.png'}, this)"></i>
+    </span>
+    <img src="img/Roundkids.png"
+    onclick="openProductDetail('SAQÉRA Round Kids',49000,'img/Roundkids.png','Frame round kids ringan dan playful.')">
+    <h4>SAQÉRA Round Kids</h4>
+    <p>Rp 49.000</p>
+    <button class="btn-cart"
+        onclick="addToCart('SAQÉRA Round Kids',49000,'img/Roundkids.png')">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+</div>
+
+
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2025 SAQÉRA Eyewear. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishlist | SAQÉRA Eyewear</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body{
+    font-family:Poppins,sans-serif;
+    background:#f6dfe3;
+    margin:0;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#fff;
+}
+
+.wishlist-page{
+    padding:40px 8%;
+}
+
+.wishlist-box{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+}
+
+.wishlist-item{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:20px;
+    border-bottom:1px solid #eee;
+    padding-bottom:15px;
+}
+
+.wishlist-item img{
+    width:90px;
+}
+
+.wishlist-item h4{
+    flex:1;
+    margin:0;
+}
+
+.wishlist-item p{
+    margin:0;
+    font-weight:500;
+}
+
+.wishlist-item button{
+    border:none;
+    background:none;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.add-cart{
+    background:#111;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+.empty{
+    text-align:center;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>SAQÉRA EYEWEAR</h2>
+    <a href="home.html">← Back to Home</a>
+</div>
+
+<!-- WISHLIST -->
+<section class="wishlist-page">
+    <div class="wishlist-box">
+        <h2>Your Wishlist ❤️</h2>
+        <div id="wishlist-items"></div>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlistItems")) || [];
+    const container = document.getElementById("wishlist-items");
+
+    function renderWishlist(){
+        container.innerHTML = "";
+
+        if(wishlist.length === 0){
+            container.innerHTML = "<p class='empty'>Wishlist masih kosong 💔</p>";
+            return;
+        }
+
+        wishlist.forEach((item, index) => {
+            container.innerHTML += `
+            <div class="wishlist-item">
+                <img src="${item.image}">
+                <h4>${item.name}</h4>
+                <p>Rp ${item.price.toLocaleString()}</p>
+
+                <button class="add-cart" onclick="addToCart(${index})">
+                    Add to Cart
+                </button>
+
+                <button onclick="removeWishlist(${index})">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+            `;
+        });
+    }
+
+    window.removeWishlist = function(index){
+        wishlist.splice(index, 1);
+        localStorage.setItem("wishlistItems", JSON.stringify(wishlist));
+        renderWishlist();
+    }
+
+    window.addToCart = function(index){
+        let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const item = wishlist[index];
+
+        const exist = cart.find(p => p.id === item.id);
+
+        if(exist){
+            exist.qty += 1;
+        } else {
+            cart.push({...item, qty:1});
+        }
+
+        localStorage.setItem("cartItems", JSON.stringify(cart));
+        alert("Produk masuk ke cart 🛒");
+    }
+
+    renderWishlist();
+});
+</script>
+
+</body>
+</html>

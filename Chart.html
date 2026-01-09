@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart | SAQÉRA Eyewear</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body{
+    font-family:Poppins,sans-serif;
+    background:#f6dfe3;
+    margin:0;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#fff;
+}
+
+.cart-page{
+    padding:40px 8%;
+}
+
+.cart-box{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+}
+
+.cart-item{
+    display:grid;
+    grid-template-columns:80px 1fr 160px 120px 40px;
+    align-items:center;
+    gap:20px;
+    margin-bottom:20px;
+    border-bottom:1px solid #eee;
+    padding-bottom:15px;
+}
+
+.cart-item img{
+    width:80px;
+}
+
+.cart-item h4{
+    margin:0;
+}
+
+.cart-item p{
+    margin:0;
+    font-weight:500;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.qty button{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:1px solid #ccc;
+    background:#fff;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.remove-btn{
+    border:none;
+    background:none;
+    color:#e63946;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.total{
+    text-align:right;
+    font-size:20px;
+    margin-top:20px;
+    font-weight:600;
+}
+
+.checkout{
+    margin-top:30px;
+    text-align:right;
+}
+
+.checkout button{
+    padding:14px 35px;
+    border:none;
+    border-radius:30px;
+    background:#111;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>SAQÉRA EYEWEAR</h2>
+    <a href="home.html">← Back to Home</a>
+</div>
+
+<!-- CART -->
+<section class="cart-page">
+    <div class="cart-box">
+        <h2>Your Cart</h2>
+
+        <div id="cart-items"></div>
+
+        <div class="total" id="total-price">Total: Rp 0</div>
+
+        <div class="checkout">
+            <button onclick="window.location.href='checkout.html'">Checkout</button>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const cartContainer = document.getElementById("cart-items");
+    const totalPriceEl = document.getElementById("total-price");
+
+    function renderCart(){
+        cartContainer.innerHTML = "";
+        let total = 0;
+
+        if(cartItems.length === 0){
+            cartContainer.innerHTML = "<p>Keranjang masih kosong 🛒</p>";
+            totalPriceEl.innerText = "Total: Rp 0";
+            return;
+        }
+
+        cartItems.forEach((item, index) => {
+            if(!item.qty) item.qty = 1;
+
+            const price = Number(item.price);
+            const itemTotal = price * item.qty;
+            total += itemTotal;
+
+            cartContainer.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}">
+                <h4>${item.name}</h4>
+
+                <div class="qty">
+                    <button onclick="changeQty(${index}, -1)">−</button>
+                    <span>${item.qty}</span>
+                    <button onclick="changeQty(${index}, 1)">+</button>
+                </div>
+
+                <p>Rp ${itemTotal.toLocaleString()}</p>
+
+                <button class="remove-btn" onclick="removeItem(${index})">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+            `;
+        });
+
+        totalPriceEl.innerText = "Total: Rp " + total.toLocaleString();
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+
+    window.changeQty = function(index, value){
+        cartItems[index].qty += value;
+        if(cartItems[index].qty < 1) cartItems[index].qty = 1;
+        renderCart();
+    }
+
+    window.removeItem = function(index){
+        cartItems.splice(index, 1);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        renderCart();
+    }
+
+    renderCart();
+});
+</script>
+
+</body>
+</html>
